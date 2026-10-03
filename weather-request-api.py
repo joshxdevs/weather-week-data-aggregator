@@ -1,4 +1,5 @@
 import requests
+import pandas as pd 
 from datetime import datetime, timedelta
 
 today = datetime.now()
@@ -12,3 +13,16 @@ url = f"https://api.open-meteo.com/v1/forecast?latitude=12.97&longitude=77.59&st
 response = requests.get(url)
 data = response.json()
 print(data)
+print("\n")
+
+daily_data = data['daily']
+
+df = pd.DataFrame({
+    'date': daily_data['time'],
+    'max_temp': daily_data['temperature_2m_max'],
+    'min_temp': daily_data['temperature_2m_min']
+})
+
+df['date'] = pd.to_datetime(df['date'])
+
+print(df)
