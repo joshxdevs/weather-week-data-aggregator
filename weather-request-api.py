@@ -1,4 +1,5 @@
 import requests
+import os
 import pandas as pd 
 import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
@@ -42,3 +43,9 @@ plt.tight_layout()
 
 plt.savefig('weather_chart.png')
 plt.show()
+
+if not os.path.exists('data'):
+    os.makedirs('data')
+
+df.to_csv('data/bangalore_weather.csv', index=False)
+print('Data saved to data/bangalore_weather.csv')
