@@ -1,5 +1,6 @@
 import requests
 import pandas as pd 
+import matplotlib.pyplot as plt
 from datetime import datetime, timedelta
 
 today = datetime.now()
@@ -12,7 +13,6 @@ url = f"https://api.open-meteo.com/v1/forecast?latitude=12.97&longitude=77.59&st
 
 response = requests.get(url)
 data = response.json()
-print(data)
 print("\n")
 
 daily_data = data['daily']
@@ -26,3 +26,19 @@ df = pd.DataFrame({
 df['date'] = pd.to_datetime(df['date'])
 
 print(df)
+
+plt.figure(figsize=(10,6))
+plt.plot(df['date'], df['max_temp'], marker='o', label='Max Temp')
+plt.plot(df['date'], df['min_temp'], marker='o', label='Min Temp')
+
+plt.xlabel('Date')
+plt.ylabel('Temperature (°C)')
+
+plt.title('Bangalore Weather - Past 7 Days')
+plt.legend()
+
+plt.xticks(rotation=45)
+plt.tight_layout()
+
+plt.savefig('weather_chart.png')
+plt.show()
