@@ -114,3 +114,34 @@ pip install -r requirements.txt
 ```
 
 ---
+
+## Usage
+Run the aggregation script:
+```bash
+python weather-request-api.py
+```
+### Script Execution Flow:
+1. Queries the Open-Meteo API for Bangalore (`lat: 12.97`, `lon: 77.59`).
+2. Prints the structured table directly in your terminal:
+   ```text
+            date  max_temp  min_temp
+   0  2026-09-28      28.6      19.8
+   1  2026-09-29      28.1      19.5
+   ...
+   ```
+3. Generates and displays `weather_chart.png` depicting maximum and minimum temperature trends.
+4. Exports the table to `data/bangalore_weather.csv`.
+---
+## Sample Output
+### CSV Record Format (`data/bangalore_weather.csv`)
+| date | max_temp (°C) | min_temp (°C) |
+| :--- | :--- | :--- |
+| `2026-09-28` | 28.6 | 19.8 |
+| `2026-09-29` | 28.1 | 19.5 |
+| `2026-09-30` | 28.2 | 20.3 |
+| `2026-10-01` | 28.4 | 20.5 |
+| `2026-10-02` | 28.8 | 20.1 |
+| `2026-10-03` | 29.3 | 20.2 |
+| `2026-10-04` | 30.1 | 20.9 |
+| `2026-10-05` | 29.4 | 20.3 |
+---
