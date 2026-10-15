@@ -145,3 +145,15 @@ python weather-request-api.py
 | `2026-10-04` | 30.1 | 20.9 |
 | `2026-10-05` | 29.4 | 20.3 |
 ---
+## Customization
+To target a different city or change metrics, open [`weather-request-api.py`](weather-request-api.py) and modify:
+- **Coordinates:**
+  ```python
+  # Example: New York City
+  latitude = 40.7128
+  longitude = -74.0060
+  ```
+- **Date Duration:** Change `timedelta(days=7)` to any desired range (e.g., `14` or `30`).
+- **Additional Metrics:** Add parameters to the query URL such as `precipitation_sum` or `windspeed_10m_max`.
+---
+
