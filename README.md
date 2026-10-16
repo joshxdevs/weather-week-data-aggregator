@@ -156,4 +156,6 @@ To target a different city or change metrics, open [`weather-request-api.py`](we
 - **Date Duration:** Change `timedelta(days=7)` to any desired range (e.g., `14` or `30`).
 - **Additional Metrics:** Add parameters to the query URL such as `precipitation_sum` or `windspeed_10m_max`.
 ---
+## License
 
+This project is licensed under the MIT License
